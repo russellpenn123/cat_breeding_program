@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatBreedingProgram")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ab43828cd34640fc1379bcbb172f17dfa8fdda4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4f6274096bdebde9a0a77493910cf63515196fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatBreedingProgram")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatBreedingProgram")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

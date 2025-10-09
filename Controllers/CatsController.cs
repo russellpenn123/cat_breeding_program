@@ -11,6 +11,6 @@ public class CatsController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Cat cat)
     {
-        return Ok("You are creating a " + (cat.IsMale ? "Male" : "Female") + " cat named " + cat.Name + " who is " + cat.Age + " years old and has " + cat.FurColourHex + " fur.");
+        return Ok("You are creating a " + (cat.IsMale ? "Male" : "Female") + " cat named " + cat.Name + " who is " + cat.Age + " years old and has " + cat.FurColourHex + " fur. Cute!");
     }
 }
