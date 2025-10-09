@@ -9,6 +9,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <!-- Enables sending telemetry (requests, dependencies, logs, exceptions) to Application Insights -->
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+    <!-- Enables Azure App Service file / blob logging providers -->
+    <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="8.0.0" />
   </ItemGroup>
 
 </Project>
