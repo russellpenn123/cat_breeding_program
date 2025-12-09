@@ -17,9 +17,16 @@ public class CatsController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Cat cat)
     {
-        _logger.LogInformation("CatsController invoked - Registering cat: {CatName}, Age: {Age}, Gender: {Gender}, Color: {Color}", 
+        _logger.LogInformation("CatsController invoked - Registering cat: {CatName}, Age: {Age}, Gender: {Gender}, Color: {Color}",
             cat.Name, cat.Age, cat.IsMale ? "Male" : "Female", cat.FurColourHex);
-        
+
         return Ok("You are creating a " + (cat.IsMale ? "Male" : "Female") + " cat named " + cat.Name + " who is " + cat.Age + " years old and has " + cat.FurColourHex + " fur. Cute!");
+    }
+
+    [HttpGet]
+    public IActionResult Get()
+    {
+        _logger.LogInformation("CatsContoller invoked - Get all cats");
+        return Ok("Returning all registered cats: { mocky moggy }");   
     }
 }
