@@ -1,3 +1,4 @@
+using CatBreedingProgram.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -9,6 +10,9 @@ builder.Logging.AddAzureWebAppDiagnostics();
 
 // Add Application Insights telemetry (picks up connection string from configuration or env var APPLICATIONINSIGHTS_CONNECTION_STRING)
 builder.Services.AddApplicationInsightsTelemetry();
+
+// Register repositories
+builder.Services.AddScoped<ICatRepository, CatRepository>();
 
 // Add services to the container.
 builder.Services.AddControllers();
