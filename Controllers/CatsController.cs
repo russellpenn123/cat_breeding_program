@@ -38,4 +38,19 @@ public class CatsController : ControllerBase
 
         return Ok($"Returning all registered cats: {string.Join(", ", savedCats.Select(c => c.Name))}");   
     }
+
+    [HttpGet("{name}")]
+    public async Task<IActionResult> GetByName(string name)
+    {
+        _logger.LogInformation("CatsController invoked - Get cat by name: {CatName}", name);
+
+        var cat = await _catRepository.GetCatByName(name);
+
+        if (cat == null)
+        {
+            return NotFound($"Cat with name {name} not found.");
+        }
+
+        return Ok(cat);
+    }
 }

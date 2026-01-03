@@ -72,4 +72,20 @@ public class CatRepository : ICatRepository
 
         return cats;
     }
+
+    public async Task<Cat> GetCatByName(string name)
+    {
+        var query = "SELECT * FROM c WHERE c.name = @name";
+        var queryDefinition = new QueryDefinition(query)
+            .WithParameter("@name", name);
+
+        var feedIterator = _container.GetItemQueryIterator<Cat>(queryDefinition);
+        if (feedIterator.HasMoreResults)
+        {
+            var response = await feedIterator.ReadNextAsync();
+            return response.Resource.FirstOrDefault();
+        }
+        
+        return null;
+    }
 }
