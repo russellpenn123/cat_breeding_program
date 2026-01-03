@@ -56,4 +56,20 @@ public class CatRepository : ICatRepository
             throw;
         }
     }
+
+    public async Task<List<Cat>> GetAllCatsAsync()
+    {
+        var cats = new List<Cat>();
+        var query = "SELECT * FROM c";
+        var queryDefinition = new QueryDefinition(query);
+        var feedIterator = _container.GetItemQueryIterator<Cat>(queryDefinition);
+
+        while (feedIterator.HasMoreResults)
+        {
+            var response = await feedIterator.ReadNextAsync();
+            cats.AddRange(response.Resource);
+        }
+
+        return cats;
+    }
 }

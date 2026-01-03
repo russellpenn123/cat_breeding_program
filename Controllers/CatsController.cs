@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CatBreedingProgram.Models;
 using CatBreedingProgram.Services;
+using System.Threading.Tasks;
 
 namespace CatBreedingProgram.Controllers;
 
@@ -29,9 +30,12 @@ public class CatsController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult Get()
+    public async Task<IActionResult> Get()
     {
         _logger.LogInformation("CatsContoller invoked - Get all cats");
-        return Ok("Returning all registered cats: { mocky moggy }");   
+
+        var savedCats = await _catRepository.GetAllCatsAsync();
+
+        return Ok($"Returning all registered cats: {string.Join(", ", savedCats.Select(c => c.Name))}");   
     }
 }
