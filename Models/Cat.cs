@@ -1,16 +1,19 @@
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+
 
 namespace CatBreedingProgram.Models;
 
 public class Cat
 {
     // Cosmos DB requires 'id' property (lowercase) as the unique identifier
-    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+
     public string id { get; set; } = Guid.NewGuid().ToString();
 
     // Partition key for Cosmos DB - using Name for logical partitioning
-    [JsonPropertyName("PartitionKey")]
+    [JsonProperty("PartitionKey")]
+
     public string PartitionKey { get; set; } = string.Empty;
 
     public string Name { get; set; } = string.Empty;

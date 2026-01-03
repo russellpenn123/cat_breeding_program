@@ -36,9 +36,13 @@ public class CatRepository : ICatRepository
             }
 
             _logger.LogInformation("Saving cat {Name} with ID {Id} to Cosmos DB", cat.Name, cat.id);
+            _logger.LogInformation("PK header value: {Pk}", cat.PartitionKey);
+            _logger.LogInformation("Cat JSON system json: {Json}", System.Text.Json.JsonSerializer.Serialize(cat));
+            _logger.LogInformation("Cat JSON newtonsoft json: {Json}", Newtonsoft.Json.JsonConvert.SerializeObject(cat));
 
             // Create item in Cosmos DB
             var response = await _container.CreateItemAsync(cat, new PartitionKey(cat.PartitionKey));
+
 
             _logger.LogInformation("Successfully saved cat {Name}. Request charge: {RequestCharge} RU", 
                 cat.Name, response.RequestCharge);
