@@ -1,5 +1,6 @@
 using CatBreedingProgram.Models;
 using Microsoft.Azure.Cosmos;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace CatBreedingProgram.Services;
@@ -9,13 +10,16 @@ public class CatRepository : ICatRepository
     private readonly Container _container;
     private readonly ILogger<CatRepository> _logger;
 
-    public CatRepository(CosmosClient cosmosClient, ILogger<CatRepository> logger)
+    public CatRepository(CosmosClient cosmosClient, IConfiguration configuration, ILogger<CatRepository> logger)
     {
         _logger = logger;
         
-        // Get reference to database and container
-        var database = cosmosClient.GetDatabase("CatBreedingDb");
-        _container = database.GetContainer("Cats");
+        // Get reference to database and container from configuration
+        var databaseName = configuration["CosmosDb:DatabaseName"];
+        var containerName = configuration["CosmosDb:ContainerName"];
+        
+        var database = cosmosClient.GetDatabase(databaseName);
+        _container = database.GetContainer(containerName);
     }
 
     public async Task<Cat> AddCatAsync(Cat cat)
