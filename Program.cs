@@ -1,3 +1,4 @@
+using Azure.Storage.Blobs;
 using CatBreedingProgram.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Azure.Cosmos;
@@ -30,8 +31,16 @@ builder.Services.AddSingleton<CosmosClient>(serviceProvider =>
     });
 });
 
+
+var storageConnectionString = builder.Configuration.GetConnectionString("Storage")
+    ?? throw new InvalidOperationException("Missing ConnectionStrings:Storage");
+
+builder.Services.AddSingleton(_ => new BlobServiceClient(storageConnectionString));
+
 // Register repositories
 builder.Services.AddScoped<ICatRepository, CatRepository>();
+builder.Services.AddScoped<IBehaviourService, BehaviourService>();
+builder.Services.AddSingleton<IBehaviourLogStore, BehaviourLogStore>();
 
 // Add services to the container.
 builder.Services.AddControllers();

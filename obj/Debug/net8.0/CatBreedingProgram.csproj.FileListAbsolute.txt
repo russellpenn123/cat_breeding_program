@@ -74,3 +74,8 @@
 /Users/russellpenninctrl/Desktop/playground/cat_breeding_program/bin/Debug/net8.0/runtimes/win-x64/native/msvcp140.dll
 /Users/russellpenninctrl/Desktop/playground/cat_breeding_program/bin/Debug/net8.0/runtimes/win-x64/native/vcruntime140.dll
 /Users/russellpenninctrl/Desktop/playground/cat_breeding_program/bin/Debug/net8.0/runtimes/win-x64/native/vcruntime140_1.dll
+/Users/russellpenninctrl/Desktop/playground/cat_breeding_program/bin/Debug/net8.0/Azure.Storage.Blobs.dll
+/Users/russellpenninctrl/Desktop/playground/cat_breeding_program/bin/Debug/net8.0/Azure.Storage.Common.dll
+/Users/russellpenninctrl/Desktop/playground/cat_breeding_program/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/russellpenninctrl/Desktop/playground/cat_breeding_program/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/russellpenninctrl/Desktop/playground/cat_breeding_program/bin/Debug/net8.0/System.IO.Hashing.dll
