@@ -10,7 +10,7 @@ public class Cat
     public string id { get; set; } = Guid.NewGuid().ToString();
 
     // Partition key for Cosmos DB - using Name for logical partitioning
-    [JsonPropertyName("partitionKey")]
+    [JsonPropertyName("PartitionKey")]
     public string PartitionKey { get; set; } = string.Empty;
 
     public string Name { get; set; } = string.Empty;
