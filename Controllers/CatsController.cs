@@ -25,7 +25,7 @@ public class CatsController : ControllerBase
 
         var savedCat = await _catRepository.AddCatAsync(cat);
 
-        return Ok($"Saved cat: {savedCat.Name} with id {savedCat.Id}. Cute!");
+        return Ok($"Saved cat: {savedCat.Name} with id {savedCat.id}. Cute!");
     }
 
     [HttpGet]
